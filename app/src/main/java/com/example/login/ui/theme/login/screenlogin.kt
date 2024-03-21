@@ -77,8 +77,12 @@ import com.example.login.ui.theme.components.loginbutton
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 50.dp, vertical = 12.dp),
-                    text = "ForgotPassword?",
+                        .padding(horizontal = 25.dp, vertical = 12.dp)
+                        .clickable {
+                                   navController.navigate(Screen.Forgot.route)
+                        },
+
+                    text = "Forgot Password?",
                     //fontSize = 10.sp,
                     color = Color.Black
                 )

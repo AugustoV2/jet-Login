@@ -1,5 +1,7 @@
 package com.example.login.ui.theme.signup
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.login.ui.theme.Screen
 import com.example.login.ui.theme.signup.componentssign.textfieldinfo
 
 
@@ -47,6 +50,10 @@ public fun Signupscreen(navController: NavHostController){
         .padding(30.dp)
         .fillMaxSize(),
         ){
+        Text(
+            text = "Sign Up",
+            fontSize = 30.sp
+        )
         textfieldinfo(firstname,lastname,email,password,confirmpassword)
 
         Button(
@@ -60,14 +67,26 @@ public fun Signupscreen(navController: NavHostController){
 
         }) {
             Text(
-                text="Sign Up",
+                text="Submit",
 
                 style = TextStyle(
                     fontSize = 20.sp,
                     ),
                 )
         }
-        Row{
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.Center
+        ){
+            Text(
+                modifier = Modifier
+                    .clickable { navController.navigate(Screen.Login.route) },
+                text ="Already have an account? Login!"
+
+
+
+            )
 
         }
     }
