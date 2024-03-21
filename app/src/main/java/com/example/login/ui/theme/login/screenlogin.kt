@@ -1,5 +1,6 @@
 package com.example.login.ui.theme.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -37,6 +38,7 @@ import com.example.login.ui.theme.components.loginbutton
     Column(
         modifier = Modifier
             .fillMaxSize()
+
         //.background(Color(0xFF1A237E)),
     )
     {
@@ -77,10 +79,14 @@ import com.example.login.ui.theme.components.loginbutton
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 50.dp, vertical = 12.dp),
-                    text = "ForgotPassword?",
+                        .padding(horizontal = 25.dp, vertical = 12.dp)
+                        .clickable {
+                                   navController.navigate(Screen.Forgot.route)
+                        },
+
+                    text = "Forgot Password?",
                     //fontSize = 10.sp,
-                    color = Color.Black
+                    color = Color.Red
                 )
             }
             Column(
@@ -91,18 +97,19 @@ import com.example.login.ui.theme.components.loginbutton
                 loginbutton(username ,password ,check)
             }
             Row (modifier = Modifier
-                    .fillMaxSize(),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.Center,
+                .fillMaxSize(),
+                verticalAlignment = Alignment.Bottom,
+                horizontalArrangement = Arrangement.Center,
             ) {
-            Text(
-                modifier = Modifier
-                    .clickable {
-                        navController.navigate(Screen.Signup.route)
-                    },
-                text = "Dont have an account? Signup!"
-            )
-        }
+                Text(
+                    modifier = Modifier
+                        .clickable {
+                            navController.navigate(Screen.Signup.route)
+                        },
+                    text = "Dont have an account? Signup!",
+                    color= Color.Red
+                )
+            }
         }
         }
     }

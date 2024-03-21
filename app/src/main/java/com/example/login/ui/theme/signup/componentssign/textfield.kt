@@ -3,7 +3,11 @@ package com.example.login.ui.theme.signup.componentssign
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -39,6 +43,9 @@ fun textfieldinfo(
                 .padding(10.dp)
                 .fillMaxWidth(),
             value = nfname,
+            leadingIcon = {
+                Icon(Icons.Default.Person, contentDescription = "name")
+            },
             textStyle = TextStyle(color = Color.Black),
             onValueChange = { new -> nfname = new },
             label = { Text("First name") }
@@ -49,6 +56,9 @@ fun textfieldinfo(
             modifier = Modifier
                 .padding(10.dp)
                 .fillMaxWidth(),
+            leadingIcon = {
+                Icon(Icons.Default.Person, contentDescription = "name")
+            },
             value = nlname,
             textStyle = TextStyle(color = Color.Black),
             onValueChange = { new -> nlname = new },
@@ -61,6 +71,9 @@ fun textfieldinfo(
                 .padding(10.dp)
                 .fillMaxWidth(),
             value = nemail,
+            leadingIcon = {
+                Icon(Icons.Default.Email, contentDescription = "email")
+            },
             textStyle = TextStyle(color = Color.Black),
             onValueChange = { new -> nemail = new },
             label = { Text("Email ID") }
@@ -72,6 +85,9 @@ fun textfieldinfo(
                 .padding(10.dp)
                 .fillMaxWidth(),
             value = npass,
+            leadingIcon = {
+                Icon(Icons.Default.Person, contentDescription = "password")
+            },
             textStyle = TextStyle(color = Color.Black),
             onValueChange = { new -> npass = new },
             visualTransformation = PasswordVisualTransformation(),
@@ -84,6 +100,9 @@ fun textfieldinfo(
                 .padding(10.dp)
                 .fillMaxWidth(),
             value = ncpass,
+            leadingIcon = {
+                Icon(Icons.Default.Person, contentDescription = "password")
+            },
             textStyle = TextStyle(color = Color.Black),
             onValueChange = { new -> ncpass = new },
             visualTransformation = PasswordVisualTransformation(),

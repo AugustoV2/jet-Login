@@ -1,7 +1,12 @@
 package com.example.login.ui.theme.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,8 +31,15 @@ fun logintxtfield(username : String){
        modifier = Modifier.fillMaxWidth(),
         value = nusername,
         textStyle = TextStyle(color = Color.Black),
+        leadingIcon = {
+            Icon(Icons.Default.Person, contentDescription = "username")
+        },
         onValueChange = {newText -> nusername = newText },
-        label = { Text("Username") }
+
+
+        label = { Text("Username")
+
+        }
     )
 
     }
@@ -38,6 +50,9 @@ fun passwrodtxtfield(password : String){
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         value = npassword,
+        leadingIcon = {
+            Icon(Icons.Default.Lock, contentDescription = "password")
+        },
         textStyle = TextStyle(color = Color.Black),
         onValueChange = {new -> npassword = new},
         visualTransformation = PasswordVisualTransformation(),

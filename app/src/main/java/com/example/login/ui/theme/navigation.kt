@@ -9,6 +9,7 @@ import com.example.login.ui.theme.login.LoginScreen
 import com.example.login.ui.theme.signup.Signupscreen
 
 
+
 @Composable
 fun navigation(){
     val navController = rememberNavController()
@@ -18,6 +19,9 @@ fun navigation(){
         }
         composable(Screen.Signup.route){
             Signupscreen(navController)
+        }
+        composable(Screen.Forgot.route){
+            Forgotpage(navController)
         }
     }
     }
