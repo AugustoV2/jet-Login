@@ -9,6 +9,7 @@ import com.example.login.ui.theme.LoginTheme
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import com.example.login.ui.theme.login.LoginScreen
+import com.example.login.ui.theme.navigation
 import com.example.login.ui.theme.signup.Signupscreen
 
 
@@ -17,16 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoginTheme {
-                var enable by remember {
-                    mutableStateOf(false)
-                }
-                if (enable == true) {
-                    Signupscreen()
-                } else {
-                    LoginScreen()
-
-
-                }
+                navigation()
             }
         }
     }

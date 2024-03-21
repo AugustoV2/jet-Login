@@ -1,5 +1,7 @@
 package com.example.login.ui.theme.login
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,18 +21,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import com.example.login.ui.theme.Screen
 import com.example.login.ui.theme.components.loginbutton
-import com.example.login.ui.theme.signup.signtxt
 
 
 @Composable
-    fun LoginScreen(){
+    fun LoginScreen(navController: NavHostController){
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var check by remember { mutableStateOf(false) }
-    var enabled by rememberSaveable{ mutableStateOf(true)}
-   // val qn = AnnotatedString("Dont have an acc? Sign UP!")
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +55,6 @@ import com.example.login.ui.theme.signup.signtxt
                 modifier = Modifier.fillMaxWidth()
             ) {
                 logintxtfield(username = username)
-                //passwrodtxtfield(password = password)
 
             }
             Row(
@@ -88,13 +90,23 @@ import com.example.login.ui.theme.signup.signtxt
             ) {
                 loginbutton(username ,password ,check)
             }
-            Row{
-                signtxt()
-
-            }
+            Row (modifier = Modifier
+                    .fillMaxSize(),
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.Center,
+            ) {
+            Text(
+                modifier = Modifier
+                    .clickable {
+                        navController.navigate(Screen.Signup.route)
+                    },
+                text = "Dont have an account? Signup!"
+            )
+        }
+        }
         }
     }
-}
+
 
 
 
